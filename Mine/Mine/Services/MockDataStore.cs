@@ -14,12 +14,11 @@ namespace Mine.Services
         {
             items = new List<ItemModel>()
             {
-                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Hextech Gunblade", Description="Shoot forward and slow enemy if hit.", Value=5 },
+                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Hunter Potion", Description="Instantly restore user's health.", Value=3 },
+                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Shield of Shojin", Description="Reduce incoming damage.", Value=4 },
+                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Anti-heal Blade", Description="Reduce target's incoming healing if hit.", Value=6 },
+                new ItemModel { Id = Guid.NewGuid().ToString(), Text = "Rapid Firecannon", Description="Increase attack speed every 10 seconds in battle.", Value=2 },
             };
         }
 
