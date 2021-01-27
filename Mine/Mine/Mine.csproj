@@ -16,9 +16,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Game\" />
-    <Folder Include="Views\Items\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Views\Items\ItemDetailPage.xaml.cs" />
   </ItemGroup>
 </Project>
