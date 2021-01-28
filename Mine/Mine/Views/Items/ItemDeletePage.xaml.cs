@@ -35,5 +35,20 @@ namespace Mine.Views
             viewModel = new ItemReadViewModel(item);
             BindingContext = viewModel;
         }
+
+        /// Cancel the Page
+        public async void CancelItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        /// Open the Delete Page for this item
+        public async void DeleteItem_Clicked(object sender, EventArgs e)
+        {
+            // Add message ...
+            MessagingCenter.Send(this, "DeleteItem", viewModel.Item);
+
+            await Navigation.PopModalAsync();
+        }
     }
 }
