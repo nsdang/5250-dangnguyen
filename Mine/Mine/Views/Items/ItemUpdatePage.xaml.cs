@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Mine.Models;
-using Mine.ViewModels;
 
 namespace Mine.Views
 {
@@ -13,33 +13,36 @@ namespace Mine.Views
     [DesignTimeVisible(false)]
     public partial class ItemUpdatePage : ContentPage
     {
-        ItemReadViewModel viewModel;
-
-        public ItemUpdatePage(ItemReadViewModel viewModel)
-        {
-            InitializeComponent();
-
-            BindingContext = this.viewModel = viewModel;
-        }
+        public ItemModel Item { get; set; }
 
         public ItemUpdatePage()
         {
             InitializeComponent();
 
-            var item = new ItemModel
+            Item = new ItemModel
             {
-                Text = "Item 1",
+                Text = "Item name",
                 Description = "This is an item description."
             };
 
-            viewModel = new ItemReadViewModel(item);
-            BindingContext = viewModel;
+            BindingContext = this;
         }
 
-        public async void DeleteItem_Clicked(object sender, EventArgs e)
+        async void Save_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(viewModel)));
-            await Navigation.PopAsync();
+            MessagingCenter.Send(this, "AddItem", Item);
+            await Navigation.PopModalAsync();
+        }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+        
+        // Update the Display Value when the Stepper Changes
+        void Value_OnStepperValueChanged(Object sender, ValueChangedEventArgs e)
+        {
+            ValueValue.Text = String.Format("{0}", e.NewValue);
         }
     }
 }
