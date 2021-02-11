@@ -18,7 +18,7 @@ namespace UnitTests.Helpers
             // Reset
 
             // Assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(0, result); 
         }
     }
 }
